@@ -50,9 +50,44 @@
     border: 1px solid #ddd;
 }
 
+main {
+    position: fixed;
+    top: 50px;
+}
+
+header {
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #138DA9;
+    position: fixed;
+}
+
 h1 {
-    color: #333;
-    font-size: 24px;
+    color: black;
+    font-size: 3em;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 0.5em;
+}
+
+h2 {
+    color: black;
+    font-size: 2em;
+    text-align: center;
+    margin-bottom: 0.5em; 
+}
+
+.moyenspace{
+    height: 6em;
+}
+
+footer {
+    background-color: #138DA9; 
+    color: black;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
 }

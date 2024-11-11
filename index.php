@@ -11,25 +11,19 @@
 </head>
 <body>
     <header>
-        <h1>Ma Bibliothèque</h1>
-        <nav>
-            <a href="index.php">Accueil</a>
-            <!-- Vous pouvez ajouter plus de liens ici si nécessaire -->
-        </nav>
+        <h1>La Bibliothèque de Centrale Lille</h1>
     </header>
 
     <main>
-        <!-- Section d'introduction -->
-        <section class="hero">
-            <h1>Bienvenue à la Bibliothèque en Ligne</h1>
-            <p>Explorez notre collection de livres, trouvez des lectures inspirantes, et découvrez de nouveaux auteurs.</p>
-        </section>
+        <h2>Bienvenue sur le site de la bibli</h2>
+        <p>Découvrez les livres disponibles à la bibli de la résidence.</p>
 
-        <!-- Section de recherche -->
         <form action="recherche.php" method="GET">
             <input type="text" name="search" id="search" placeholder="Rechercher un livre..." required>
             <button type="submit">Rechercher</button>
         </form>
+        <div class="petitspace"></div>
+        <img src="logo.png" width="300">
     </main>
 
     <footer>

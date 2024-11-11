@@ -1,50 +1,80 @@
 body {
     font-family: Arial, sans-serif;
-    background-color: #c1b1e1;
-    color: black;
-    padding: 20px;
+    background-color: white;
+    color: #333;
+    align-items: center;
+    justify-items: center;
 }
 
-h1, h2 {
+main{
+    background-color: white;
+    top: 10em;
+    position: fixed; 
+    text-align: center;  
+    left: 0;
+    right: 0;
+}
+
+header {
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: #138DA9;
+    position: fixed;
+}
+
+h1 {
+    color: black;
+    font-size: 3em;
+    text-align: center;
+}
+
+h2 {
+    color: black;
+    font-size: 2em;
+    text-align: center;
+}
+
+p {
     color: black;
     text-align: center;
-    font-size: 3em;
+    font-size: 1.2em;
 }
 
 form {
     margin-bottom: 20px;
 }
 
+.petitspace{
+    height: 2em;
+}
+
 input[type="text"] {
-    padding: 5px;
-    width: 250px;
+    padding: 1em;
+    width: 18em;
+    font-size: 1em;
 }
 
 button {
-    padding: 6px 10px;
-    background-color: #3498db;
-    color: white;
-    border: none;
+    padding: 0.8em 1em;
+    background-color: #c1b1e1;
+    color: black;
+    border: color(srgb rgb(0, 0, 0) );
     cursor: pointer;
+    font-size: 1.2em;
 }
 
 button:hover {
-    background-color: #2980b9;
+    background-color: #c1b1e1;
 }
 
-table {
+footer {
+    background-color: #138DA9; 
+    color: black;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    bottom: 0;
+    left: 0;
     width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-th {
-    background-color: #3498db;
-    color: white;
 }
