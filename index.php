@@ -6,7 +6,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ma Bibliothèque</title>
+    <title>La Bibliothèque</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
