@@ -9,6 +9,11 @@
 <body>
     <header> <h1>La Bibliothèque de Centrale Lille</h1> </header>
     <div class="moyenspace"></div>
+    <form action="recherche.php" method="GET">
+        <input type="text" name="search" id="search" placeholder="Rechercher un livre..." required>
+        <button type="submit">Rechercher</button>
+    </form>
+    <div class="petitspace"></div>
         <?php
         // Connexion à la base de données SQLite
         $db = new SQLite3('dbb.db');
@@ -45,6 +50,7 @@
                 $dispo = ($row['dispo'] == 1) ? 'Disponible' : 'Indisponible';
                 $annee = ($row['annee'] == 0) ? 'N/A' : $row['annee'];
                 $serie = ($row['serie'] == '') ? 'N/A' : $row['serie'];
+                $volume = ($row['volume'] == 0) ? 'N/A' : $row['volume'];
 
                 echo "<tr>";
                 echo "<td>" . htmlspecialchars($row['titre']) . "</td>";
@@ -53,7 +59,7 @@
                 echo "<td>" . htmlspecialchars($row['type']) . "</td>";
                 echo "<td>" . htmlspecialchars($annee) . "</td>";
                 echo "<td>" . htmlspecialchars($serie) . "</td>";
-                echo "<td>" . htmlspecialchars($row['volume']) . "</td>";
+                echo "<td>" . htmlspecialchars($volume) . "</td>";
                 echo "<td>" . htmlspecialchars($dispo) . "</td>";
                 echo "</tr>";
             }
