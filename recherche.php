@@ -48,9 +48,9 @@
                 while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
                     // Transformation des valeurs 'dispo'
                     $dispo = ($row['dispo'] == 1) ? 'Disponible' : 'Indisponible';
-                    $annee = ($row['annee'] == 0) ? 'N/A' : $row['annee'];
-                    $serie = ($row['serie'] == '') ? 'N/A' : $row['serie'];
-                    $volume = ($row['volume'] == 0) ? 'N/A' : $row['volume'];
+                    $annee = ($row['annee'] == 0) ? '' : $row['annee'];
+                    $serie = ($row['serie'] == '') ? '' : $row['serie'];
+                    $volume = ($row['volume'] == 0) ? '' : $row['volume'];
 
                     echo "<tr>";
                     echo "<td>" . htmlspecialchars($row['titre']) . "</td>";
