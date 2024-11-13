@@ -9,7 +9,7 @@ body {
 main{
     background-color: white;
     top: 10em;
-    position: fixed; 
+    position: absolute; 
     text-align: center;  
     left: 0;
     right: 0;
@@ -20,7 +20,7 @@ header {
     left: 0;
     right: 0;
     background-color: #138DA9;
-    position: fixed;
+    position: absolute;
 }
 
 h1 {
@@ -49,6 +49,10 @@ form {
     height: 2em;
 }
 
+.moyenspace {
+    height: 5em;
+}
+
 input[type="text"] {
     padding: 1em;
     width: 18em;
@@ -68,11 +72,57 @@ button:hover {
     background-color: #c1b1e1;
 }
 
+
+/* Style général du tableau */
+.styled-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1.2em;
+    min-width: 6em;
+    background-color: #f9f9f9;
+    border-radius: 2em;
+    margin-top: 2em;
+}
+
+.styled-table th,
+.styled-table td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+}
+
+.styled-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+.styled-table td {
+    text-align: center;
+}
+
+/* Style pour les en-têtes */
+.styled-table th {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
+/* Style pour les lignes impaires */
+.styled-table tr:nth-child(odd) {
+    background-color: #f9f9f9;
+}
+
+/* Style pour les lignes paires */
+.styled-table tr:nth-child(even) {
+    background-color: white;
+}
+
+/* Style pour les bordures */
+.styled-table td, .styled-table th {
+    border: 1px solid #ddd;
+}
+
 footer {
     background-color: #138DA9; 
     color: black;
     text-align: center;
-    padding: 1rem;
     position: fixed;
     bottom: 0;
     left: 0;

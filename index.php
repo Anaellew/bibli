@@ -22,8 +22,10 @@
             <input type="text" name="search" id="search" placeholder="Rechercher un livre..." required>
             <button type="submit">Rechercher</button>
         </form>
+
         <div class="petitspace"></div>
-        <img src="logo.png" width="300">
+        <img src="logo.png" width="400">
+
     </main>
 
     <footer>
