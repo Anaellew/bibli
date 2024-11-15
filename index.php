@@ -15,7 +15,17 @@
     </header>
 
     <main>
-        <h2>Bienvenue sur le site de la bibli</h2>
+        <div class="moyenspace"></div>
+        <div class="container">
+            <h2>Bienvenue sur le site de la bibli</h2>
+            <form action="ajout.php" method="GET"> 
+                
+                <button type="submit">Admin</button>
+            </form>
+        </div>
+
+        <div class="petitspace"></div>
+        
         <p>Découvrez les livres disponibles à la bibli de la résidence.</p>
 
         <form action="recherche.php" method="GET">
@@ -24,7 +34,7 @@
         </form>
 
         <div class="petitspace"></div>
-        <img src="logo.png" width="400">
+        <img src="logo.png" width="350">
 
     </main>
 

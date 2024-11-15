@@ -8,7 +8,7 @@ body {
 
 main{
     background-color: white;
-    top: 10em;
+    top: 8em;
     position: absolute; 
     text-align: center;  
     left: 0;
@@ -31,7 +31,7 @@ h1 {
 
 h2 {
     color: black;
-    font-size: 2em;
+    font-size: 2.5em;
     text-align: center;
 }
 
@@ -46,12 +46,36 @@ form {
 }
 
 .petitspace{
-    height: 2em;
+    height: 1.5em;
 }
 
 .moyenspace {
-    height: 5em;
+    height: 4em;
 }
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    position: relative; 
+}
+
+.container h2 {
+    position: absolute; 
+    left: 50%;
+    transform: translateX(-50%); 
+    margin: 0; 
+    text-align: center; 
+    padding: 2em;
+}
+
+.container form {
+    margin-left: auto; 
+    position: absolute;
+    right: 7em; 
+    margin: 0;
+}
+
 
 input[type="text"] {
     padding: 1em;
