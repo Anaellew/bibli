@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
+    header('Location: admin.php');
+    exit;
+}
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -12,8 +21,9 @@
 
     <main>
 
-    <?php
-    ?>
+    <a href="ajout.php">Ajouter un livre</a>
+
+    <a href="edit.php">Modifier une entrée</a>
 
     </main>
 

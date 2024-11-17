@@ -76,8 +76,13 @@ form {
     margin: 0;
 }
 
-
 input[type="text"] {
+    padding: 1em;
+    width: 18em;
+    font-size: 1em;
+}
+
+input[type="password"] {
     padding: 1em;
     width: 18em;
     font-size: 1em;
@@ -96,6 +101,10 @@ button:hover {
     background-color: #c1b1e1;
 }
 
+a {
+    font-size: 2em;
+    color: black;
+}
 
 /* Style général du tableau */
 .styled-table {

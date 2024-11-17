@@ -1,5 +1,4 @@
 <?php
-// Vous pouvez ajouter ici une logique PHP si nécessaire (par exemple, vérifier des erreurs ou initialiser des variables)
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -18,8 +17,7 @@
         <div class="moyenspace"></div>
         <div class="container">
             <h2>Bienvenue sur le site de la bibli</h2>
-            <form action="ajout.php" method="GET"> 
-                
+            <form action="login.php" method="GET">   
                 <button type="submit">Admin</button>
             </form>
         </div>
