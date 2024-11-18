@@ -80,6 +80,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <p>Si un livre est disponible, il faut mettre 1. S'il est indisponible, il faut mettre 0.</p>
 
+    <div class="moyenspace"></div>
+
     </main>
 
     <footer> <p>&copy; 2024 La Bibliothèque</p> </footer>

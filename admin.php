@@ -21,7 +21,11 @@ if (!isset($_SESSION['logged_in']) || $_SESSION['logged_in'] !== true) {
 
     <main>
 
+    <div class="moyenspace"></div>
+
     <a href="ajout.php">Ajouter un livre</a>
+
+    <div class="moyenspace"></div>
 
     <a href="edit.php">Modifier une entrée</a>
 

@@ -14,15 +14,8 @@
     </header>
 
     <main>
-        <div class="moyenspace"></div>
-        <div class="container">
-            <h2>Bienvenue sur le site de la bibli</h2>
-            <form action="login.php" method="GET">   
-                <button type="submit">Admin</button>
-            </form>
-        </div>
 
-        <div class="petitspace"></div>
+        <h2>Bienvenue sur le site de la bibli</h2> 
         
         <p>Découvrez les livres disponibles à la bibli de la résidence.</p>
 
@@ -32,7 +25,13 @@
         </form>
 
         <div class="petitspace"></div>
-        <img src="logo.png" width="350">
+        <img src="logo.png" width="325">
+
+        <div class="container">
+            <form action="login.php" method="GET">   
+                    <button type="submit">Admin</button>
+            </form>
+        </div>
 
     </main>
 
