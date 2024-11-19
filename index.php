@@ -20,8 +20,13 @@
         <p>Découvrez les livres disponibles à la bibli de la résidence.</p>
 
         <form action="recherche.php" method="GET">
-            <input type="text" name="search" id="search" placeholder="Rechercher un livre..." required>
+            <input type="text" name="search" id="search" placeholder="Rechercher un livre..." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
             <button type="submit">Rechercher</button>
+            <select name="dispo">
+                <option value="">Disponibilité</option>
+                <option value="1" <?= (isset($_GET['dispo']) && $_GET['dispo'] == '1') ? 'selected' : '' ?>>Disponible</option>
+                <option value="0" <?= (isset($_GET['dispo']) && $_GET['dispo'] == '0') ? 'selected' : '' ?>>Indisponible</option>
+            </select>
         </form>
 
         <div class="petitspace"></div>

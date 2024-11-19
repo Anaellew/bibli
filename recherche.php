@@ -9,32 +9,47 @@
 <body>
     <header> <h1>La Bibliothèque de Centrale Lille</h1> </header>
     <main>
-        <form action="recherche.php" method="GET">
-            <input type="text" name="search" id="search" placeholder="Rechercher un livre..." required>
-            <button type="submit">Rechercher</button>
-        </form>
+    <form action="recherche.php" method="GET">
+        <input type="text" name="search" id="search" placeholder="Rechercher un livre..." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
+        <button type="submit">Rechercher</button>
+        <select name="dispo">
+            <option value="">Disponibilité</option>
+            <option value="1" <?= (isset($_GET['dispo']) && $_GET['dispo'] == '1') ? 'selected' : '' ?>>Disponible</option>
+            <option value="0" <?= (isset($_GET['dispo']) && $_GET['dispo'] == '0') ? 'selected' : '' ?>>Indisponible</option>
+        </select>
+    </form>
 
             <?php
             // Connexion à la base de données SQLite
             $db = new SQLite3('dbb.db');
 
-            // Récupérer la valeur de recherche, nettoyer les données
+            // Récupération des filtres
             $search = isset($_GET['search']) ? trim($_GET['search']) : '';
+            $dispo = isset($_GET['dispo']) ? trim($_GET['dispo']) : '';
 
             // Si un terme de recherche est fourni
             if (!empty($search)) {
-                // Ajouter les signes "%" pour permettre une recherche partielle avec LIKE
-                $searchTerm = '%' . $search . '%';
 
-                // Préparer la requête SQL pour rechercher dans le titre, auteur ou genre
-                $query = "SELECT * FROM BDD WHERE titre LIKE :searchTerm OR auteur LIKE :searchTerm OR genre LIKE :searchTerm OR type LIKE :searchTerm OR annee LIKE :searchTerm OR serie LIKE :searchTerm";
+                // Construction de la requête
+                $query = "SELECT * FROM BDD WHERE 1=1";
+                $params = [];
 
-                // Préparer la requête SQL avec des paramètres
+                if (!empty($search)) {
+                    $query .= " AND (titre LIKE :searchTerm OR auteur LIKE :searchTerm OR genre LIKE :searchTerm)";
+                    $params[':searchTerm'] = '%' . $search . '%';
+                } 
+
+                if ($dispo !== '') {
+                    $query .= " AND dispo = :dispo";
+                    $params[':dispo'] = $dispo;
+                }
+
+                // Préparer et exécuter la requête
                 $stmt = $db->prepare($query);
-                $stmt->bindValue(':searchTerm', $searchTerm, SQLITE3_TEXT);
-
-                // Exécuter la requête et obtenir les résultats
-                $results = $stmt->execute();
+                foreach ($params as $key => $value) {
+                    $stmt->bindValue($key, $value, SQLITE3_TEXT);
+                }
+                $result = $stmt->execute();
 
                 // Afficher les résultats dans une table HTML
                 echo "<h2>Résultats de la recherche pour: " . htmlspecialchars($search) . "</h1>";
@@ -45,7 +60,7 @@
                 echo "<tbody>";
 
                 // Parcourir les résultats et les afficher dans la table
-                while ($row = $results->fetchArray(SQLITE3_ASSOC)) {
+                while ($row = $result->fetchArray(SQLITE3_ASSOC)) {
                     // Transformation des valeurs 'dispo'
                     $dispo = ($row['dispo'] == 1) ? 'Disponible' : 'Indisponible';
                     $annee = ($row['annee'] == 0) ? '' : $row['annee'];

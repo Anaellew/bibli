@@ -9,34 +9,49 @@
 <body>
     <header> <h1>La Bibliothèque de Centrale Lille</h1> </header>
     <main>
-        <form action="edit.php" method="GET">
-            <input type="text" name="search" id="search" placeholder="Rechercher un livre..." required>
-            <button type="submit">Rechercher</button>
-        </form>
-        <?php
+    <form action="edit.php" method="GET">
+        <input type="text" name="search" id="search" placeholder="Rechercher un livre..." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
+        <button type="submit">Rechercher</button>
+        <select name="dispo">
+            <option value="">Disponibilité</option>
+            <option value="1" <?= (isset($_GET['dispo']) && $_GET['dispo'] == '1') ? 'selected' : '' ?>>Disponible</option>
+            <option value="0" <?= (isset($_GET['dispo']) && $_GET['dispo'] == '0') ? 'selected' : '' ?>>Indisponible</option>
+        </select>
+    </form>
 
+    <?php
+        // Connexion à la base
         $db = new SQLite3('dbb.db');
 
-            // Récupérer la valeur de recherche, nettoyer les données
-            $search = isset($_GET['search']) ? trim($_GET['search']) : '';
+        // Récupération des filtres
+        $search = isset($_GET['search']) ? trim($_GET['search']) : '';
+        $dispo = isset($_GET['dispo']) ? trim($_GET['dispo']) : '';
 
-            if (!empty($search)) {
-                // Ajouter les signes "%" pour permettre une recherche partielle avec LIKE
-                $searchTerm = '%' . $search . '%';
+        // Construction de la requête
+        $query = "SELECT * FROM BDD WHERE 1=1";
+        $params = [];
 
-                // Préparer la requête SQL pour rechercher dans le titre, auteur ou genre
-                $query = "SELECT * FROM BDD WHERE titre LIKE :searchTerm OR auteur LIKE :searchTerm OR genre LIKE :searchTerm OR type LIKE :searchTerm OR annee LIKE :searchTerm OR serie LIKE :searchTerm";
+        if (!empty($search)) {
+            $query .= " AND (titre LIKE :searchTerm OR auteur LIKE :searchTerm OR genre LIKE :searchTerm)";
+            $params[':searchTerm'] = '%' . $search . '%';
+        } 
+        else {
+            $result = $db->query("SELECT * FROM BDD");
+        }    
 
-                // Préparer la requête SQL avec des paramètres
-                $stmt = $db->prepare($query);
-                $stmt->bindValue(':searchTerm', $searchTerm, SQLITE3_TEXT);
+        if ($dispo !== '') {
+            $query .= " AND dispo = :dispo";
+            $params[':dispo'] = $dispo;
+        }
 
-                // Exécuter la requête et obtenir les résultats
-                $result = $stmt->execute();
+        // Préparer et exécuter la requête
+        $stmt = $db->prepare($query);
+        foreach ($params as $key => $value) {
+            $stmt->bindValue($key, $value, SQLITE3_TEXT);
+        }
+        $result = $stmt->execute();
 
-            } else {
-                $result = $db->query("SELECT * FROM BDD");
-            }
+
 
         echo "<h2>Liste des livres</h1>";
         echo "<table class='styled-table'>";
@@ -81,8 +96,9 @@
                 </tr>";
         }
         echo "</table>";
-        ?>
-        <div class="moyenspace"></div>
+    ?>
+
+    <div class="moyenspace"></div>
     </main>
     <footer> <p>&copy; 2024 La Bibliothèque</p> </footer>
 </body>
