@@ -45,7 +45,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 </head>
 <body>
 
-    <header> <h1>La Bibliothèque de Centrale Lille</h1> </header>
+    <header>
+        <a href="index.php">
+            <img src="logo.png" width="100">
+        </a>
+        <h1>La Bibliothèque de Centrale Lille</h1>
+        <a href="https://docs.google.com/spreadsheets/d/1zN4k8Z45FqBy7biUVE6uSuzLJS8Ijs5oOl42GjnT6I0/edit?usp=sharing">
+            <img src="planning.png" width="100">
+        </a>
+    </header>
 
     <main>
 
