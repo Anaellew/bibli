@@ -177,3 +177,57 @@ footer {
     left: 0;
     width: 100%;
 }
+
+@media (max-width: 768px) {
+    header {
+        text-align: center;
+        padding: 1em;
+        white-space: inherit; 
+    }
+
+    header img {
+        width: 0px; 
+    }
+
+    header h1 {
+        font-size: 1.8em;
+    }
+
+    h2 {
+        font-size: 1.5em; 
+    }
+
+    /* Adapter le formulaire */
+    form {
+        display: flex;
+        flex-direction: column;
+        gap: 1em; /* Espacement entre les champs */
+        align-items: center;
+    }
+
+    input[type="text"], input[type="password"], select, button {
+        width: 90%;
+        font-size: 1em; 
+    }
+
+    button {
+        font-size: 1em;
+        padding: 0.7em;
+    }
+
+    /* Adapter le tableau */
+    .styled-table {
+        font-size: 1em; /* Taille réduite pour les petits écrans */
+        border-radius: 0.5em;
+    }
+
+    .styled-table th, .styled-table td {
+        padding: 8px; /* Réduit les marges internes */
+    }
+
+    /* Footer */
+    footer {
+        font-size: 0.9em;
+        padding: 1em 0;
+    }
+}

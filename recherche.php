@@ -17,6 +17,7 @@
         </a>
     </header>
     <main>
+    <div class="petitspace"></div>
     <form action="recherche.php" method="GET">
         <input type="text" name="search" id="search" placeholder="Rechercher un livre..." value="<?= htmlspecialchars($_GET['search'] ?? '') ?>">
         <button type="submit">Rechercher</button>
