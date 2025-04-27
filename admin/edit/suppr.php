@@ -1,5 +1,5 @@
 <?php
-$db = new SQLite3('dbb.db');
+$db = new SQLite3('../../dbb.db');
 
 // Vérifier si l'ID est passé dans l'URL
 if (isset($_GET['id'])) {
@@ -11,8 +11,7 @@ if (isset($_GET['id'])) {
 
     // Exécuter la suppression
     if ($stmt->execute()) {
-        // Redirection vers la page contenant la liste des livres (edit.php ici)
-        header("Location: edit.php"); // Redirige vers la liste des livres
+        header("Location: edit.php"); 
         exit;
     } else {
         echo "Erreur lors de la suppression du livre.";

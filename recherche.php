@@ -100,6 +100,6 @@
             ?>
         <div class="moyenspace"></div>
     </main>
-    <footer> <p>&copy; 2024 La Bibliothèque</p> </footer>
+    <footer> <p>&copy; 2025 La Bibliothèque</p> </footer>
 </body>
 </html>

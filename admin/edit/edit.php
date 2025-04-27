@@ -4,16 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Bibliothèque</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../../style.css">
 </head>
 <body>
     <header>
-        <a href="index.php">
-            <img src="logo.png" width="100">
+        <a href="../../index.php">
+            <img src="../../logo.png" width="100">
         </a>
         <h1>La Bibliothèque de Centrale Lille</h1>
         <a href="https://docs.google.com/spreadsheets/d/1zN4k8Z45FqBy7biUVE6uSuzLJS8Ijs5oOl42GjnT6I0/edit?usp=sharing">
-            <img src="planning.png" width="100">
+            <img src="../../planning.png" width="100">
         </a>
     </header>
     <main>
@@ -29,7 +29,7 @@
 
     <?php
         // Connexion à la base
-        $db = new SQLite3('dbb.db');
+        $db = new SQLite3('../../dbb.db');
 
         // Récupération des filtres
         $search = isset($_GET['search']) ? trim($_GET['search']) : '';
@@ -108,6 +108,6 @@
 
     <div class="moyenspace"></div>
     </main>
-    <footer> <p>&copy; 2024 La Bibliothèque</p> </footer>
+    <footer> <p>&copy; 2025 La Bibliothèque</p> </footer>
 </body>
 </html>

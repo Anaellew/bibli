@@ -39,7 +39,7 @@
         <img src="logo.png" width="325">
 
         <div class="container">
-            <form action="login.php" method="GET">   
+            <form action="/admin/login.php" method="GET">   
                     <button type="submit">Admin</button>
             </form>
         </div>
@@ -47,9 +47,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 La Bibliothèque</p>
+        <p>&copy; 2025 La Bibliothèque</p>
     </footer>
-
-    <script src="assets/js/script.js"></script>
 </body>
 </html>
